@@ -1,4 +1,5 @@
-import HotelListAddButton from '@/components/test/HotelListAddButton'
+import React from 'react'
+import HotelListAddButton from '../components/test/HotelListAddButton'
 
 function HotelList() {
   return (
