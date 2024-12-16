@@ -1,6 +1,9 @@
 import Button from '@shared/Button'
 
 import { HOTEL_NAMES, IMAGES, EVENTS, HOTEL, ROOMS } from '@/mock/data'
+import { collection, doc, writeBatch } from 'firebase/firestore'
+import { store } from '@/remote/firebase'
+import { COLLECTION } from '@/contants'
 
 function HotelListAddButton() {
   function random(min: number, max: number) {
@@ -8,6 +11,8 @@ function HotelListAddButton() {
   }
 
   const handleButtonClick = () => {
+    const batch = writeBatch(store)
+
     const hotels = HOTEL_NAMES.map((hotelName, idx) => {
       return {
         name: hotelName,
@@ -19,8 +24,16 @@ function HotelListAddButton() {
         ...(EVENTS[idx] != null && { events: EVENTS[idx] }),
       }
     })
-    console.log(ROOMS[Math.floor(Math.random() * ROOMS.length)].price)
-    console.log(hotels)
+
+    hotels.forEach((hotel) => {
+      const hotelDocRef = doc(collection(store, COLLECTION.HOTEL))
+      batch.set(hotelDocRef, hotel)
+      ROOMS.forEach((room) => {
+        const subDocRef = doc(collection(hotelDocRef, COLLECTION.ROOM))
+        batch.set(subDocRef, room)
+      })
+    })
+    batch.commit()
   }
   return <Button onClick={handleButtonClick}>호텔 리스트 추가</Button>
 }
