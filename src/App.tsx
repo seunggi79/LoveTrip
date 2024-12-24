@@ -2,8 +2,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import TestPage from '@pages/Test'
 import HotelListPage from '@pages/HotelList'
+import { useEffect } from 'react'
+import { getHotels } from '@/remote/hotel'
 
 function App() {
+  useEffect(() => {
+    getHotels()
+  }, [])
   return (
     <BrowserRouter>
       <Routes>
