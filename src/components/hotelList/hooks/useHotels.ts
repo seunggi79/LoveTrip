@@ -21,8 +21,10 @@ function useHotels() {
     fetchNextPage() // 더 많은 데이터를 가져오기 위한
   }, [fetchNextPage, hasNextPage, isFetching])
 
+  const hotels = data?.pages.map(({ items }) => items).flat()
+
   return {
-    data,
+    data: hotels,
     loadMore,
     isFetching,
     hasNextPage,
