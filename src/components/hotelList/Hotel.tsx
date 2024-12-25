@@ -5,6 +5,7 @@ import ListRow from '@shared/ListRow'
 import Flex from '@shared/Flex'
 import Text from '@shared/Text'
 import Spacing from '@shared/Spacing'
+import addDelimiter from '@/utils/addDelimiter'
 
 function Hotel({ hotel }: { hotel: IHotel }) {
   return (
@@ -26,7 +27,7 @@ function Hotel({ hotel }: { hotel: IHotel }) {
           <Flex direction="column" align="flex-end">
             <img src={hotel.mainImageUrl} alt="" css={imageStyles} />
             <Spacing size={8} />
-            <Text bold={true}>{hotel.price}원</Text>
+            <Text bold={true}>{addDelimiter(hotel.price)}원</Text>
           </Flex>
         }
         style={containerStyles}
