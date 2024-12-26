@@ -7,16 +7,53 @@ import Text from '@shared/Text'
 import Spacing from '@shared/Spacing'
 import addDelimiter from '@/utils/addDelimiter'
 import Tag from '../shared/Tag'
+import { differenceInMilliseconds, parseISO } from 'date-fns'
+import formatTime from '@/utils/formatTime'
+import { useEffect, useState } from 'react'
 
 function Hotel({ hotel }: { hotel: IHotel }) {
+  const [remainedTime, setRemainedTime] = useState(0)
+  useEffect(() => {
+    const promoEndTime = hotel.events?.promoEndTime
+
+    // hotel 이벤트가 없거나 프로모타임이 없으면 리턴
+    if (hotel.events == null || promoEndTime == null) {
+      return
+    }
+
+    // 타이머
+    const timer = setInterval(() => {
+      const 남은초 = differenceInMilliseconds(
+        new Date(),
+        parseISO(promoEndTime),
+      )
+
+      setRemainedTime(남은초)
+    }, 1_000)
+
+    // 리턴
+    return () => {
+      clearInterval(timer)
+    }
+  }, [hotel.events])
+
   const tagComponent = () => {
     if (hotel.events == null) {
       return null
     }
-    const { name } = hotel.events
+    const { name, tagThemeStyle } = hotel.events
+
+    const promotionTxt =
+      remainedTime > 0 ? ` | ${formatTime(remainedTime)} 남음` : ''
+
     return (
       <div>
-        <Tag>{name}</Tag>
+        <Tag
+          color={tagThemeStyle.fontColor}
+          backgroundColor={tagThemeStyle.backgroundColor}
+        >
+          {name.concat(promotionTxt)}
+        </Tag>
         <Spacing size={8} />
       </div>
     )
