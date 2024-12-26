@@ -6,13 +6,27 @@ import Flex from '@shared/Flex'
 import Text from '@shared/Text'
 import Spacing from '@shared/Spacing'
 import addDelimiter from '@/utils/addDelimiter'
+import Tag from '../shared/Tag'
 
 function Hotel({ hotel }: { hotel: IHotel }) {
+  const tagComponent = () => {
+    if (hotel.events == null) {
+      return null
+    }
+    const { name } = hotel.events
+    return (
+      <div>
+        <Tag>{name}</Tag>
+        <Spacing size={8} />
+      </div>
+    )
+  }
   return (
     <div>
       <ListRow
         contents={
           <Flex direction="column">
+            {tagComponent()}
             <ListRow.Texts
               title={hotel.name}
               subTitle={hotel.comment}
