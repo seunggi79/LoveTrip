@@ -4,6 +4,7 @@ import TestPage from '@pages/Test'
 import HotelListPage from '@pages/HotelList'
 import { useEffect } from 'react'
 import { getHotels } from '@/remote/hotel'
+import HotelPage from './pages/Hotel'
 
 function App() {
   useEffect(() => {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HotelListPage />} />
         <Route path="/test" element={<TestPage />} />
+        <Route path="/hotel/:id" element={<HotelPage />} />
       </Routes>
     </BrowserRouter>
   )

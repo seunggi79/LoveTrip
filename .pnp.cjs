@@ -57,6 +57,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-query", "virtual:231647c65765a2968f59c133858ae2a1c9a7ae50863fd684665386e47288f8642695c2a25dc47f1dfa58e23c81a44dee55fe4bb3272d8a6dc16e38076caf08e3#npm:3.39.3"],\
             ["react-router-dom", "virtual:231647c65765a2968f59c133858ae2a1c9a7ae50863fd684665386e47288f8642695c2a25dc47f1dfa58e23c81a44dee55fe4bb3272d8a6dc16e38076caf08e3#npm:6.28.0"],\
             ["react-scripts", "virtual:231647c65765a2968f59c133858ae2a1c9a7ae50863fd684665386e47288f8642695c2a25dc47f1dfa58e23c81a44dee55fe4bb3272d8a6dc16e38076caf08e3#npm:5.0.1"],\
+            ["swiper", "npm:10.3.1"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"],\
             ["web-vitals", "npm:2.1.4"]\
           ],\
@@ -14088,6 +14089,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-query", "virtual:231647c65765a2968f59c133858ae2a1c9a7ae50863fd684665386e47288f8642695c2a25dc47f1dfa58e23c81a44dee55fe4bb3272d8a6dc16e38076caf08e3#npm:3.39.3"],\
             ["react-router-dom", "virtual:231647c65765a2968f59c133858ae2a1c9a7ae50863fd684665386e47288f8642695c2a25dc47f1dfa58e23c81a44dee55fe4bb3272d8a6dc16e38076caf08e3#npm:6.28.0"],\
             ["react-scripts", "virtual:231647c65765a2968f59c133858ae2a1c9a7ae50863fd684665386e47288f8642695c2a25dc47f1dfa58e23c81a44dee55fe4bb3272d8a6dc16e38076caf08e3#npm:5.0.1"],\
+            ["swiper", "npm:10.3.1"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"],\
             ["web-vitals", "npm:2.1.4"]\
           ],\
@@ -19105,6 +19107,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["csso", "npm:4.2.0"],\
             ["picocolors", "npm:1.1.1"],\
             ["stable", "npm:0.1.8"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["swiper", [\
+        ["npm:10.3.1", {\
+          "packageLocation": "./.yarn/cache/swiper-npm-10.3.1-76fd5fe27f-9a785930ca.zip/node_modules/swiper/",\
+          "packageDependencies": [\
+            ["swiper", "npm:10.3.1"]\
           ],\
           "linkType": "HARD"\
         }]\
