@@ -6,8 +6,8 @@ import Top from '@/components/shared/Top'
 import { useParams } from 'react-router-dom'
 
 function HotelPage() {
-  const id = useParams() as { id: string }
-  const { isLoading, data } = useHotel(id)
+  const { id } = useParams() as { id: string }
+  const { isLoading, data } = useHotel({ id })
 
   if (data == null || isLoading) {
     return <div>Loading...</div>
@@ -19,7 +19,7 @@ function HotelPage() {
     <div>
       <Top title={name} subTitle={comment} />
       <Carousel images={images} />
-      <Rooms />
+      <Rooms hotelId={id} />
       <Contents contents={contents} />
     </div>
   )
