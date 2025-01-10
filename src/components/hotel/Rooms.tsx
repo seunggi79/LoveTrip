@@ -7,6 +7,7 @@ import ListRow from '../shared/ListRow'
 import Tag from '../shared/Tag'
 import Spacing from '../shared/Spacing'
 import Button from '../shared/Button'
+import addDelimiter from '@/utils/addDelimiter'
 
 function Rooms({ hotelId }: { hotelId: string }) {
   const { data } = useRooms({ hotelId })
@@ -46,7 +47,7 @@ function Rooms({ hotelId }: { hotelId: string }) {
                       ) : null}
                     </Flex>
                   }
-                  subTitle={`${room.price}원 / `.concat(
+                  subTitle={`${addDelimiter(room.price)}원 / `.concat(
                     room.refundable ? '환불가능' : '환불불가',
                   )}
                 />
